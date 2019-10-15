@@ -10,14 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // navli[1].onclick(() => {
     //     this.classList.toggle('test');
     // })
-    
+    // wrap.addEventListener('click', ()=>{
+    //     drop.classList.toggle('tg-01');
+    // })
     search.addEventListener('click', ()=>{
         fromDrop.classList.toggle('ds-01');
     });
     // // click moi nhat
-    wrap.addEventListener('click', ()=>{
-        drop.classList.toggle('tg-01');
-    });
+
     //  nếu click ra ngoài các button thì ẩn tất cả các menu con
 //      window.addEventListener("click", function(){
 //         if (!event.target.matches('wrap-drop')){
@@ -25,13 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
 //         }
 //    });
     // click active  navigation
-    var header = document.getElementById("navi-01");
-    var btns = header.getElementsByClassName("page-01");
-    for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("naviactive");
-    current[0].className = current[0].className.replace("naviactive", "");
-    this.className += " naviactive";
-    });
-    }
+    // var header = document.getElementById("navi-01");
+    // var btns = header.getElementsByClassName("page-01");
+    // for (var i = 0; i < btns.length; i++) {
+    // btns[i].addEventListener("click", function() {
+    // var current = document.getElementsByClassName("naviactive");
+    // current[0].className = current[0].className.replace("naviactive", "");
+    // this.className += " naviactive";
+    // });
+    // }
 }, false)

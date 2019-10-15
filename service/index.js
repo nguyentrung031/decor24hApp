@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 var bodyParser = require('body-parser');
-const Data = require('./Decor24hDB.json');
-const DataEmail = require('./EmailDB.json');
+const Data = require('./database/Decor24hDB.json');
+const user = require('./database/user');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -12,19 +12,17 @@ app.get('/', (req, res) => {
 app.get('/api/TinTuc', (req, res) => {
     res.json(Data);
 });
-app.get('/api/addEmail', (rep, res) =>{
-    res.json(DataEmail)
+app.get('/api/getEmail', (rep, res) =>{
+    res.json(user)
 });
 app.post('/api/addEmail',(rep, res) =>{
-    debugger
     var param = rep.body;
     var Email = param.Email;
     var resData = {
         "Email":Email
     }
-        // DataEmail.handleClick(Email);
-    res.status(200).send({ success:true,massage:'Thanh cong', data:resData});
-    // res.status(200).send({ success:true,massage:'Thanh cong', data: responseData});
+    res.status(200).send({ success:true,massage:'Thanh cong', user:resData});
+    res.json(user.push(resData));
 });
 app.listen(5000, () => {
     console.log('App listening on port 5000')
