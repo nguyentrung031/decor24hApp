@@ -5,7 +5,7 @@ class ListItem extends Component {
         return (
             <ul className="list-unstyled">
             <li className="media">
-            <a href="/">
+            <a href={"/Detail/"+ this.props.TinId }>
                 <img src={this.props.Image} className="mr-3" alt="..." />
             </a>
             <div className="media-body">
