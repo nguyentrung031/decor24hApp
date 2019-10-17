@@ -6,6 +6,12 @@ export const getAllDataTintuc = () => (
     .then((Response) =>Response.data)
     .catch((error) => console.log(error))
 ) 
+// export const getDataTintuc = () => (
+//     axios.get('/api/TinTuc/:id')
+//     .then((Response) => Response.data)
+//     .catch((error) => console.log(error))
+// ) 
+
 export const AddData = (Email) => (
     axios.post("/api/addEmail", Email)
     .then((Response) => Response.data)

@@ -3,7 +3,6 @@ const AllInitialState = {
     Tintuc:null
 }
 const myReducer = (state = AllInitialState, action) => {
-    debugger
     switch (action.type) {
         case ActionTypes.GET_ALL_TINTUC:
             return action.values.data;

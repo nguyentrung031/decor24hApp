@@ -23,7 +23,7 @@ class RouterURL extends Component {
                         <Route path="/MeoVat/" component={Meovat} />
                         <Route path="/VatTu/" component={Vattu} />
                         <Route path="/DocLa/" component={Docla} />
-                        <Route path="/Detail/" component={Detail} />
+                        <Route path="/Detail/:id" component={Detail} />
                     </div>
              </Router>
             </div>

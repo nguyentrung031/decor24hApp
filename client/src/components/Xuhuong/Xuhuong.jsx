@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 import ListItem from './ListItem';
 // import {connect} from 'react-redux';
 import { getAllDataTintuc } from '../../Router/APIRep';
-// import axios from 'axios';
-// const geXuHuongData = () => 
-//     axios.get('/api/TinTuc')
-//     .then((Response) => Response.data)
-//     .catch((error) => console.log(error))
-
 class Xuhuong extends Component {
     constructor(props) {
         super(props);
@@ -26,24 +20,9 @@ class Xuhuong extends Component {
         }
     }
     printData = () => {
-        // if(this.props.getDataTintuc !== null){
-        //     return this.props.getDataTintuc.map((value, key) => (
-        //         <ListItem key = {key} Image = {value.img}
-        //                   Name = {value.name} Date = {value.date}
-        //                   Content = {value.content}/>
-        //     ))
-        // }
-        // this.props.getDataTintuc && this.props.getDataTintuc.map((value,key) => {
-        //     if(!value){
-        //         return <div></div>
-        //     }
-        //     return <ListItem key = {key} Image = {value.img}
-        //                       Name = {value.name} Date = {value.date}
-        //                       Content = {value.content}/>
-        // }) 
         if(this.state.data !== null){
            return this.state.data.map((value,key) =>
-                (<ListItem key = {key} Image = {value.img}
+                (<ListItem key = {key} TinId={key} Image = {value.img}
                           Name = {value.name} Date = {value.date}
                           Content = {value.content}/>)
             )
