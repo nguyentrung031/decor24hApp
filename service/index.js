@@ -12,13 +12,6 @@ app.get('/', (req, res) => {
 app.get('/api/TinTuc', (req, res) => {
     res.json(Data);
 });
-// app.get('/api/TinTuc/:id', (req, res) => {
-//     const id = req.params.id
-//     const Tintuc = Data.find(a => a.id === id);
-//     res.status(200).send({
-//         data:Tintuc
-//     })
-// });
 app.get('/api/getEmail', (rep, res) =>{
     res.json(user)
 });

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ListItem from './ListItem';
-// import {connect} from 'react-redux';
 import { getAllDataTintuc } from '../../Router/APIRep';
+import CardItem from './CardItem';
+import CardItemI1 from './CardItemI1';
 class Xuhuong extends Component {
     constructor(props) {
         super(props);
@@ -28,6 +29,34 @@ class Xuhuong extends Component {
             )
         }
     }
+    PrintDataCardItemI1 = () => {
+        if(this.state.data !== null){
+            return this.state.data.map((value,key) =>{
+                if(key === 7 ){
+                   return (<CardItemI1 key = {key} TinId={key} Image = {value.img}
+                        Name = {value.name}/>)
+                }
+                else{
+                    return false;
+                }
+            }
+             )
+         }
+    }
+    PrintDataCardItem = () => {
+        if(this.state.data !== null){
+            return this.state.data.map((value,key) =>{
+                if(key <=1 ){
+                   return (<CardItem key = {key} TinId={key} Image = {value.img}
+                        Name = {value.name}/>)
+                }
+                else{
+                    return false;
+                }
+            }
+             )
+         }
+    }
     render() {
         return (
             <div>
@@ -35,7 +64,7 @@ class Xuhuong extends Component {
                     <div className="container bread-wrapper">
                         <nav className="bread" aria-label="breadcrumb">
                         <ol className="breadcrumb">
-                            <li className="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li className="breadcrumb-item"><a href="/">Home</a></li>
                             <li className="breadcrumb-item active" aria-current="page">Xu hướng</li>
                         </ol>
                         </nav>
@@ -71,66 +100,13 @@ class Xuhuong extends Component {
                     <section className="new">
                         <div className="container">
                         <div className="row Content-new">
-                            <div className="col-md-6 i1">
-                            <div className="img-1">
-                                <a href="/">
-                                <img src="/img/x3.jpg" alt="i1" />
-                                </a>
-                            </div> 
-                            <div className="Title-1">
-                                <small>Xu Hướng</small>
-                                <h3>Nên thiết kế nội thất phòng khách nhỏ như thế nào ? </h3>
-                                <span>02/04/2019</span>
-                            </div>
-                            </div>
+                            {this.PrintDataCardItemI1()}
                             <div className="col-md-6 i2">
                             <div className="card-2">
-                                <div className="card-item">
-                                <div className="img-3">
-                                    <a href="/">
-                                    <img src="/img/x1.jpg" alt="i1" />
-                                    </a>
-                                </div> 
-                                <div className="Title-3">
-                                    <small>Xu Hướng</small>
-                                    <h6>Mẫu thiết kế nội thất phòng ngủ màu trắng.</h6>
-                                </div>
-                                </div>
-                                <div className="card-item">
-                                <div className="img-3">
-                                    <a href="/">
-                                    <img src="/img/x2.jpg" alt="i1" />
-                                    </a>
-                                </div> 
-                                <div className="Title-3">
-                                    <small>Xu Hướng</small>
-                                    <h6>Nguyên tắc thiết kế nội thất thông minh. </h6>
-                                </div>
-                                </div>
+                                {this.PrintDataCardItem()}
                             </div>
                             <div className="card-2">
-                                <div className="card-item">
-                                <div className="img-3">
-                                    <a href="/">
-                                    <img src="/img/i3.jpg" alt="i1" />
-                                    </a>
-                                </div> 
-                                <div className="Title-3">
-                                    <small>Xu Hướng</small>
-                                    <h6>Mẫu thiết kế nội thất phòng ngủ màu trắng.</h6>
-                                </div>
-                                </div>
-                                <div className="card-item">
-                                <div className="img-3">
-                                    <a href="/">
-                                    <img src="/img/i4.jpg" alt="i1" />
-                                    </a>
-                                </div> 
-                                <div className="Title-3">
-                                    <small>Xu Hướng</small>
-                                    <h6>Nguyên tắc thiết kế nội thất thông minh. </h6>
-                                </div>
-                                </div>
+                                 {this.PrintDataCardItem()}
                             </div>
                             </div>
                         </div>
@@ -165,10 +141,4 @@ class Xuhuong extends Component {
         );
     }
 }
-// const mapStateToProps = (state, ownProps) => {
-//     return {
-//         getDataTintuc: state.Tintuc
-//     }
-// }
-// export default connect(mapStateToProps)(Xuhuong);
 export default Xuhuong;

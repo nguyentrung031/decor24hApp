@@ -1,7 +1,53 @@
 import React, { Component } from 'react';
+import { getAllDataTintuc } from '../../Router/APIRep';
 import MailItem from './MailItem';
-
+import NewItem1 from './NewItem1';
+import NewItem2 from './NewItem2';
 class Home extends Component {
+      constructor(props) {
+        super(props);
+        this.state={
+            data:null
+        }
+    }
+    componentWillMount(){
+        if(this.state.data === null){
+            getAllDataTintuc().then((res) => {
+                this.setState({
+                    data:res
+                })
+            })
+            
+        }
+    }
+    PrintDataNewItem1= () => {
+      if(this.state.data !== null){
+          return this.state.data.map((value,key) =>{
+              if(key === 8 ){
+                 return (<NewItem1 key = {key} TinId={key} Image = {value.img}
+                      Name = {value.name} Date = {value.date}/>)
+              }
+              else{
+                  return false;
+              }
+          }
+           )
+       }
+    }
+    PrintDataNewItem2= () => {
+      if(this.state.data !== null){
+          return this.state.data.map((value,key) =>{
+              if(key === 9 ){
+                 return (<NewItem2 key = {key} TinId={key} Image = {value.img}
+                      Name = {value.name}/>)
+              }
+              else{
+                  return false;
+              }
+          }
+           )
+       }
+    }
     render() {
         return (
             <div>
@@ -16,30 +62,9 @@ class Home extends Component {
                         </div>
                       </div>
                       <div className="row Content-new">
-                        <div className="col-md-6 i1">
-                          <div className="img-1 i1">
-                            <a href="/Detail/">
-                              <img src="/img/i1.jpg" alt="i1" />
-                            </a>
-                          </div> 
-                          <div className="Title-1">
-                            <small>Độc lạ</small>
-                            <a href="/Detail/"><h3>Nên thiết kế nội thất phòng khách nhỏ như thế nào ? </h3></a>
-                            <span>02/04/2019</span>
-                          </div>
-                        </div>
+                        {this.PrintDataNewItem1()}
                         <div className="col-md-6 i2">
-                          <div className="card-1">
-                            <div className="img-2">
-                              <a href="/">
-                                <img src="/img/i2.jpg" alt="i1" />
-                              </a>
-                            </div> 
-                            <div className="Title-2">
-                              <small>Độc lạ</small>
-                              <h3>5 thiết kế nội thất đơn giản!</h3>
-                            </div>
-                          </div>
+                          {this.PrintDataNewItem2()}
                           <div className="card-2">
                             <div className="card-item">
                               <div className="img-3">
