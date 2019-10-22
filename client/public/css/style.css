@@ -10,6 +10,10 @@ a {
     color: black !important;
     text-decoration: none !important;
 }
+img.mr-3.i1 {
+    width: 200px;
+    height: 137px;
+}
 /* ---------------------- */
 /* --------HEADER-------- */
 
@@ -246,7 +250,7 @@ li.nav-item:hover a.nav-link:before {visibility: visible;opacity: 1;}
 
 .img-3 img {
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 .img-1 {

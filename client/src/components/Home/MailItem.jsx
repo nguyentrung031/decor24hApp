@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
-// import {connect} from 'react-redux';
-// import axios from 'axios';
 import { AddData } from '../../Router/APIRep';
-// const AddData = (Email) => (
-//     axios.post("/api/addEmail", Email)
-//     .then((Response) => Response.data)
-//     .catch((error) => console.log(error))
-// )
 class MailItem extends Component {
     constructor(props) {
         super(props);
@@ -44,18 +37,4 @@ class MailItem extends Component {
         );
     }
 }
-// const mapStateToProps = (state, ownProps) => {
-//     return {
-//     }
-// }
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//     return {
-//         aaddDataEmail: (getitem) => {
-//             dispatch({
-//                 type:"ADD_DATA_MAIL",getitem
-//             })
-//         }
-//     }
-// }
 export default MailItem;
-// export default connect(mapStateToProps, mapDispatchToProps)(MailItem);
